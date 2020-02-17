@@ -12,7 +12,7 @@ class CreateOrdersHistoryTable extends Migration
 
     		    $table->increments('id_order_history')->unsigned();
     		    $table->integer('id_order')->unsigned();
-    		    $table->bigInteger('id_employee')->unsigned();
+    		    $table->bigInteger('id_user')->unsigned();
     		    $table->integer('id_order_state')->unsigned();
 
     		    $table->foreign('id_order')
@@ -20,8 +20,8 @@ class CreateOrdersHistoryTable extends Migration
     		        ->onDelete('cascade')
     		        ->onUpdate('cascade');
 
-            $table->foreign('id_employee')
-              ->references('id_employee')->on('employees')
+            $table->foreign('id_user')
+              ->references('id_user')->on('users')
               ->onDelete('cascade')
               ->onUpdate('cascade');
 

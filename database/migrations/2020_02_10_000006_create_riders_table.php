@@ -11,12 +11,12 @@ class CreateRidersTable extends Migration
   		    $table->engine = 'InnoDB';
 
   		    $table->increments('id_rider')->unsigned();
-  		    $table->bigInteger('id_employee')->unsigned();
+  		    $table->bigInteger('id_user')->unsigned();
   		    $table->boolean('active')->default('0');
   		    $table->integer('max_travel')->default('0');
 
-  		    $table->foreign('id_employee')
-  		        ->references('id_employee')->on('employees')
+  		    $table->foreign('id_user')
+  		        ->references('id_user')->on('users')
   		        ->onDelete('cascade')
   		        ->onUpdate('cascade');
 

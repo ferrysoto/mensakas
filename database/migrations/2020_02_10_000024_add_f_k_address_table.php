@@ -9,7 +9,7 @@ class AddFKAddressTable extends Migration
     public function up() {
       Schema::table('address', function (Blueprint $table) {
           $table->foreign('id_state')
-              ->references('id_orders_state')->on('orders_state')
+              ->references('id_state')->on('state')
               ->onDelete('cascade')
               ->onUpdate('cascade');
             });
