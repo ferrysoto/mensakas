@@ -31,7 +31,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{route('customer.index')}}">
                       <i class="fas fa-users"></i>
                       Customers
                     </a>
