@@ -4,48 +4,65 @@
 <div class="wrapper">
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
-            <strong>BS</strong>
+            <h3>Mensakas Coop</h3>
+            <strong>MK</strong>
         </div>
-
         <ul class="list-unstyled components">
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <li>
+                <a href="{{route('home')}}">
                     <i class="fas fa-home"></i>
-                    Home
+                    Dashboard
                 </a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
+                <a href="#CustomersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-tasks"></i>
+                  Orders
+                </a>
+                <ul class="collapse list-unstyled" id="CustomersSubmenu">
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-user-clock"></i>
+                      Lasts orders
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fas fa-file-alt"></i>
+                      Invoices
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-users"></i>
+                      Customers
+                    </a>
+                  </li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-briefcase"></i>
-                    About
-                </a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
-                    Pages
-                </a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
+            <li class="active">
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-building"></i>
+                  Suppliers
+              </a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-boxes"></i>
+                      Products
+                    </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                        <i class="fas fa-book-open"></i>
+                        Categories
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                        <i class="fas fa-utensils"></i>
+                        Restaurants
+                      </a>
+                  </li>
+              </ul>
             </li>
         </ul>
     </nav>
@@ -55,13 +72,10 @@
         <main class="py-4">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <div class="container-fluid">
-
-                  <button type="button" id="sidebarCollapse" class="btn btn-info">
-                      <i class="fas fa-align-left"></i>
-                      <span>Toggle Sidebar</span>
-                  </button>
+                  @include('layouts.breadcrum')
               </div>
           </nav>
+          @yield('content')
         </main>
     </div>
 </div>
