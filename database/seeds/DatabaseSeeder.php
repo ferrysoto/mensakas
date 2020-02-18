@@ -56,6 +56,10 @@ class DatabaseSeeder extends Seeder
       //messages
       MessagesTableSeeder::class,
 
+      Orders_riderTableSeeder::class,
+      Orders_historyTableSeeder::class,
+      Orders_detailsTableSeeder::class,
+
 
     ]);
   }
