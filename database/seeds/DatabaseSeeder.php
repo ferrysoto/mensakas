@@ -43,6 +43,19 @@ class DatabaseSeeder extends Seeder
 
       //Products_lang
 
+      //orders
+      Orders_stateTableSeeder::class,
+
+        Orders_state_langTableSeeder::class,
+
+        OrdersTableSeeder::class,
+
+      //Invoices
+      InvoicesTableSeeder::class,
+
+      //messages
+      MessagesTableSeeder::class,
+
 
     ]);
   }
