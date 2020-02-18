@@ -97,8 +97,20 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        $customer = DB::table('customers')->where('id_customer', $id)->get();
-        return view('customers.details', compact('customer'));
+        $customer = DB::table('customers')
+          ->where('id_customer', $id)
+          ->first();
+
+        $lang = DB::table('language')
+          ->select('name')
+          ->where('id_language', $customer->id_lang)
+          ->first();
+
+        $address = DB::table('address')
+            ->where('id_address', $customer->id_address)
+            ->first();
+        // dd($lang);
+        return view('customers.details', compact('customer', 'lang', 'address'));
     }
 
     /**

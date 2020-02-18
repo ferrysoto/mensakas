@@ -17,8 +17,8 @@
         </button>
 
         <div class="dropdown-menu" aria-labelledby="userOptions">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Employees</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" style="color:red;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
             <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
