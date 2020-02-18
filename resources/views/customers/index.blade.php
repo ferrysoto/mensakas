@@ -4,17 +4,18 @@
 	<div class="row">
 		<div class="col-md-12">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- <li class="nav-item dropdown"> -->
-           <a class="nav-link dropdown-toggle" href="http://example.com" id="customersActionsMenu" data-toggle="dropdown">Actions</a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="#customersActionsMenu">
-             <a class="dropdown-item" data-toggle="modal" data-target="#createCustomer">New customer</a>
-             <!-- <button type="button" class="dropdown-item" data-toggle="modal" data-target="#createCustomerModal">New customer</button> -->
-             <a class="dropdown-item" href="#">Order last first</a>
-             <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown">
+          <button role="button" class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{route('customer.create')}}"><i class="fas fa-user-plus icon-right"></i>Create customer</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-filter icon-right"></i>Filters</a>
+            <a class="dropdown-item" href="#"><i class="fa fa-map-marker icon-right"></i>Show address</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" style="color:red" href="#">Remove Customer</a>
+            <a class="dropdown-item" style="color:red" href="#"><i class="fas fa-user-slash icon-right"></i>Remove Customer</a>
           </div>
-        <!-- </li> -->
+        </div>
 				<div class="collapse navbar-collapse" id="customersNavbar">
 					<ul class="navbar-nav ml-md-auto">
             <li class="nav-item">
@@ -37,6 +38,7 @@
     						<th>Name</th>
     						<th>Email</th>
     						<th>Phone</th>
+                <th>Registered</th>
                 <th>Details</th>
     					</tr>
     				</thead>
@@ -53,7 +55,17 @@
                     {{$customer->email}}
                   </td>
                   <td>
-                    {{$customer->phone}}
+                    @php
+                      $tel = $customer->phone;
+                      echo substr($tel, 0, 3) . ' ' . substr($tel, 3, 3) . ' ' . substr($tel, 6, 3);
+                    @endphp
+                  </td>
+                  <td>
+                    @if($customer->is_guest != 1)
+                      <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>
+                    @else
+                      <i class="fa fa-times" aria-hidden="true" style="color:red;"></i>
+                    @endif
                   </td>
                   <td>
                     <a href="#" class="btn btn-small btn-light">

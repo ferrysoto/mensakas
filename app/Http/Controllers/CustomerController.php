@@ -26,7 +26,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+      $languages = DB::table('language')->get();
+      $states = DB::table('state')->get();
+        return view('customers.create', compact('languages', 'states'));
     }
 
     /**
@@ -37,7 +39,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $isInsert = DB::table('address')
+          ->
     }
 
     /**
