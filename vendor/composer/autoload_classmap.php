@@ -2524,6 +2524,7 @@ return array(
     'ProductsTableSeeder' => $baseDir . '/database/seeds/ProductsTableSeeder.php',
     'Products_categoriesTableSeeder' => $baseDir . '/database/seeds/Products_categoriesTableSeeder.php',
     'ProfilesTableSeeder' => $baseDir . '/database/seeds/ProfilesTableSeeder.php',
+    'Profiles_langTableSeeder' => $baseDir . '/database/seeds/Profiles_langTableSeeder.php',
     'Prophecy\\Argument' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument.php',
     'Prophecy\\Argument\\ArgumentsWildcard' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
     'Prophecy\\Argument\\Token\\AnyValueToken' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument/Token/AnyValueToken.php',

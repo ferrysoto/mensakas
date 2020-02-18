@@ -2905,6 +2905,7 @@ class ComposerStaticInit114e385fb80686a1fe371540e401f312
         'ProductsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ProductsTableSeeder.php',
         'Products_categoriesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Products_categoriesTableSeeder.php',
         'ProfilesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ProfilesTableSeeder.php',
+        'Profiles_langTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Profiles_langTableSeeder.php',
         'Prophecy\\Argument' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument.php',
         'Prophecy\\Argument\\ArgumentsWildcard' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
         'Prophecy\\Argument\\Token\\AnyValueToken' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/Token/AnyValueToken.php',

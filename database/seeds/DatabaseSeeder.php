@@ -60,6 +60,8 @@ class DatabaseSeeder extends Seeder
       Orders_historyTableSeeder::class,
       Orders_detailsTableSeeder::class,
 
+      Profiles_langTableSeeder::class,
+
 
     ]);
   }
