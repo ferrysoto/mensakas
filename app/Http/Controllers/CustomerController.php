@@ -107,10 +107,17 @@ class CustomerController extends Controller
           ->first();
 
         $address = DB::table('address')
-            ->where('id_address', $customer->id_address)
-            ->first();
-        // dd($lang);
-        return view('customers.details', compact('customer', 'lang', 'address'));
+          ->where('id_address', $customer->id_address)
+          ->first();
+
+        $orders = DB::table('orders')
+          ->join('address', 'orders.id_address', '=', 'address.id_address')
+          ->where('id_customer', $customer->id_customer)
+          ->get();
+
+        // dd($orders);
+
+        return view('customers.details', compact('customer', 'lang', 'address', 'orders'));
     }
 
     /**
