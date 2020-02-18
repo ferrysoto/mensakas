@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
   {
     $this->call([
       StateTableSeeder::class,
+      //Profiles
       ProfilesTableSeeder::class,
       LanguagesTableSeeder::class,
       Tax_rulesTableSeeder::class,
@@ -26,12 +27,19 @@ class DatabaseSeeder extends Seeder
       RidersTableSeeder::class,
       //Suppliers
         //suppliers_categories
+        Suppliers_categoriesTableSeeder::class,
 
-        //suppliers_categories_lang
+    //suppliers_categories_lang
+    //PENDIENTE
+    //Profiles_lang
+    //PENDIENTE
 
         //supliers
-
+        SuppliersTableSeeder::class,
       //Products
+      Products_categoriesTableSeeder::class,
+
+      ProductsTableSeeder::class,
 
       //Products_lang
 
