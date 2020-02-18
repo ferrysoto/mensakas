@@ -20,7 +20,12 @@
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" style="color:red;" href="">Log out</a>
+          <a class="dropdown-item" style="color:red;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            Log out
+          </a>
         </div>
       </div>
     </li>
@@ -29,6 +34,5 @@
         <i class="fas fa-align-left"></i>
       </button>
     </li>
-
   </div>
 </ol>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use DB;
 
 class CustomerController extends Controller
@@ -15,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-      $customers = DB::table('customers')->get();
+      $customers = DB::table('customers')->paginate(10);
         return view('customers.index', compact('customers'));
     }
 
@@ -39,40 +40,53 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        // dd((int)$request->state);
+       $validator = Validator::make($request->all(), [
+           'firstname' => 'required|max:255',
+           'lastname' => 'required|max:255',
+           'email' => 'required|max:150',
+           'phone' => 'required|max:11',
+           'address' => 'required|max:128',
+           'city' => 'required|max:128',
+           'zipcode' => 'required|max:11'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('customers/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $isInsertAddress = DB::table('address')
-          ->insert([
-            ['id_state' => (int)$request->state],
-            ['address' => $request->address],
-            ['city' => $request->city],
-            ['zipcode' => $request->zipcode],
-            ['active' => 1],
-            ['deleted' => 0]
-          ]);
+        ->insertGetId([
+          'id_state' => $request->state,
+          'address' => $request->address,
+          'city' => $request->city,
+          'zipcode' => $request->zipcode,
+          'active' => 1,
+          'deleted' => 0
+        ]);
 
-          $id_address = DB::table('address')
-                ->select('id_address')
-                ->where('address', $request->address)
-                ->where('zipcode', $request->zipcode)
-                ->first();
+        $address = DB::table('address')
+        ->select('id_address')
+        ->where('address', $request->address)
+        ->where('zipcode', $request->zipcode)
+        ->first();
 
-          $isInsertCustomer = DB::table('customers')
-            ->insert([
-              ['id_lang' => 1],
-              ['id_address' => (int)$id_address],
-              ['is_guest' => (int)$request->guest],
-              ['secure_key' => $request->_token],
-              ['first_name' => $request->firstname],
-              ['last_name' => $request->lastname],
-              ['email' => $request->email],
-              ['phone' => $request->phone]
-            ]);
+        $isInsertCustomer = DB::table('customers')
+        ->insertGetId([
+          'id_lang' => $request->lang,
+          'id_address' => $address->id_address,
+          'is_guest' => $request->guest,
+          // 'secure_key' => $request->_token,
+          'first_name' => $request->firstname,
+          'last_name' => $request->lastname,
+          'email' => $request->email,
+          'phone' => $request->phone
+        ]);
 
-            dd($isInsertAddress);
-
-            if ($isInsertAddress == 1 && $isInsertCustomer == 1) {
-              return back()->with('Customer saved!');
-            }
+        if ($isInsertAddress == true && $isInsertCustomer == true) {
+          return redirect('customers')->with('Customer saved!');
+        }
     }
 
     /**
@@ -83,7 +97,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = DB::table('customers')->where('id_customer', $id)->get();
+        return view('customers.details', compact('customer'));
     }
 
     /**

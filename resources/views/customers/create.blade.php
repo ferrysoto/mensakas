@@ -40,7 +40,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="customerEmail">Email</label>
-                  <input type="email" class="form-control" id="customerEmail" name="email" placeholder="email@domain.com" required>
+                  <input type="email" class="form-control" id="customerEmail" name="email" placeholder="email@domain.com" maxlength="150" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="customerPhone">Phone</label>
@@ -74,11 +74,13 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="passReset">
                   <label class="form-check-label" for="passReset">
-                    Send reset password email
+                    Send welcome email
                   </label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Save customer</button>
+              <div class="float-right">
+                <button type="submit" class="btn btn-primary">Add customer</button>
+              </div>
             </form>
           </div>
         </div>
