@@ -115,8 +115,6 @@ class CustomerController extends Controller
           ->where('id_customer', $customer->id_customer)
           ->get();
 
-        // dd($orders);
-
         return view('customers.details', compact('customer', 'lang', 'address', 'orders'));
     }
 
@@ -151,6 +149,18 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = DB::table('customers')
+          ->where('id_customer', $id)
+          ->first();
+
+        DB::table('customers')
+          ->where('id_customer', $id)
+          ->delete();
+
+        DB::table('address')
+            ->where('id_address', $customer->id_address)
+            ->delete();
+
+        return redirect('customers')->with('Customer removed');
     }
 }

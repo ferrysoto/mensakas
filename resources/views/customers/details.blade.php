@@ -5,8 +5,22 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <i class="fas fa-user-friends icon-right"></i>
-            Customer
+            <div class="float-left">
+              <i class="fas fa-user-friends icon-right"></i>
+              Customer
+            </div>
+            <div class="float-right">
+              <div class="dropdown">
+                <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin:0; padding:0;">
+                  <i class="fas fa-bars"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Edit customer</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{route('customer.remove',  ['id' => $customer->id_customer])}}" style="color: red;">Remove customer</a>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-body">
             <table class="table table-responsive-sm text-left">
