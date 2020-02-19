@@ -4,14 +4,14 @@
 
 use App\Orders_details;
 use Faker\Generator as Faker;
-$autoIncrementOrder = autoIncrementOrder();
-$autoIncrementInvoice = autoIncrementInvoice();
+$autoOrd = autoOrd();
+$autoInv = autoInv();
 
-$factory->define(Orders_details::class, function (Faker $faker) use ($autoIncrementOrder, $autoIncrementInvoice) {
+$factory->define(Orders_details::class, function (Faker $faker) use ($autoOrd, $autoInv) {
   $product = array('arroz', 'sushi', 'ramen');
     return [
-      'id_order' =>  $autoIncrementOrder->current(),
-      'id_order_invoice' =>  $autoIncrementInvoice->current(),
+      'id_order' =>  $autoOrd->current(),
+      'id_order_invoice' =>  $autoInv->current(),
       'id_supplier' =>   random_int(1,5),
       'id_product' =>   random_int(1,5),
       'product_name' =>   $product[random_int(0,2)],
@@ -21,3 +21,15 @@ $factory->define(Orders_details::class, function (Faker $faker) use ($autoIncrem
       'total_price' =>   20,
     ];
 });
+function autoInv()
+{
+  for ($i = 1; $i <= DB::table('invoices')->count(); $i++) {
+    yield $i;
+  }
+}
+function autoOrd()
+{
+  for ($i = 1; $i <= DB::table('orders')->count(); $i++) {
+    yield $i;
+  }
+}
