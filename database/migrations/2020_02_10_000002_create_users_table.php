@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('phone')->unique()->default('999999999');
-            $table->integer('id_address')->unsigned()->default('0');
+            $table->integer('id_address')->unsigned()->default('1');
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('hire_date')->default(DB::raw('CURRENT_TIMESTAMP'));

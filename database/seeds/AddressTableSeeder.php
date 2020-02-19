@@ -16,6 +16,15 @@ class AddressTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::table('address')->insert([
+        'id_state' => random_int(1,50),
+        'address' => 'nullAddress',
+        'city' => 'nullCity',
+        'zipcode' => 00000,
+        'active' => 1,
+        'created_at' => now(),
+        'updated_at' => now(),
+      ]);
       factory(Address::class,50)->create();
 
     }
