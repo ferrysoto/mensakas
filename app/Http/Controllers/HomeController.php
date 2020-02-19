@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $orders = DB::table('orders')
+        ->join('address', 'orders.id_address', '=', 'address.id_address')
+        ->where('invoice_date', date("Y-m-d"))
+        ->get();
+
+        return view('dashboard', compact('orders'));
     }
 }
