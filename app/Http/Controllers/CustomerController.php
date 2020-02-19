@@ -117,7 +117,10 @@ class CustomerController extends Controller
           ->where('id_customer', $customer->id_customer)
           ->get();
 
-        return view('customers.details', compact('customer', 'lang', 'address', 'orders'));
+        $languages = DB::table('language')->get();
+        $states = DB::table('state')->get();
+        // dd($customer);
+        return view('customers.details', compact('customer', 'lang', 'address', 'orders', 'languages', 'states'));
     }
 
     /**
