@@ -21,15 +21,16 @@ $factory->define(Orders_details::class, function (Faker $faker) use ($autoOrd, $
       'total_price' =>   20,
     ];
 });
-function autoInv()
-{
-  for ($i = 1; $i <= DB::table('invoices')->count(); $i++) {
-    yield $i;
-  }
-}
+
 function autoOrd()
 {
   for ($i = 1; $i <= DB::table('orders')->count(); $i++) {
+    yield $i;
+  }
+}
+function autoInv()
+{
+  for ($i = 1; $i <= DB::table('invoices')->count(); $i++) {
     yield $i;
   }
 }

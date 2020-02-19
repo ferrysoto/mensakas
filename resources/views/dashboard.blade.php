@@ -21,17 +21,26 @@
                         <td class="align-middle non-border"><b>Price</b></td>
                         <td class="align-middle non-border"><b>Invoice Num</b></td>
                         <td class="align-middle non-border"><b>Date</b></td>
+                        <td class="align-middle non-border"><b>Details</b></td>
                       </tr>
-                      <tr>
-                        @foreach($orders as $order)
-                          <td class="align-middle non-border">{{$order->id_order}}</td>
-                          <td class="align-middle non-border">{{$order->address}}</td>
-                          <td class="align-middle non-border">{{$order->total_paid}}</td>
-                          <td class="align-middle non-border">{{$order->invoice_num}}</td>
-                          <td class="align-middle non-border">{{$order->invoice_date}}</td>
-                        @endforeach
-                      </tr>
+                      @foreach($orders as $order)
+                        <tr>
+                            <td class="align-middle non-border">{{$order->id_order}}</td>
+                            <td class="align-middle non-border">{{$order->address}}</td>
+                            <td class="align-middle non-border">{{$order->total_paid}}</td>
+                            <td class="align-middle non-border">{{$order->invoice_num}}</td>
+                            <td class="align-middle non-border">{{$order->invoice_date}}</td>
+                            <td class="align-middle non-border">
+                              <a href="#">
+                                <i class="fas fa-sign-out-alt"></i>
+                              </a>
+                            </td>
+                        </tr>
+                      @endforeach
                     </table>
+                    <div class="float-right">
+                      {{$orders->links()}}
+                    </div>
                 </div>
             </div>
         </div>

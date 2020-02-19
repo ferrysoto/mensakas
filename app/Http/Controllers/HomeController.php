@@ -27,7 +27,7 @@ class HomeController extends Controller
         $orders = DB::table('orders')
         ->join('address', 'orders.id_address', '=', 'address.id_address')
         ->where('invoice_date', date("Y-m-d"))
-        ->get();
+        ->paginate(10);
 
         return view('dashboard', compact('orders'));
     }

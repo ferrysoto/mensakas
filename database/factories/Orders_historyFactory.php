@@ -12,7 +12,6 @@ $factory->define(Orders_history::class, function (Faker $faker) use ($autoOrder)
       'id_order_state' =>   random_int(1,20),
     ];
 });
-
 function autoOrder()
 {
   for ($i = 1; $i <= DB::table('orders')->count(); $i++) {
