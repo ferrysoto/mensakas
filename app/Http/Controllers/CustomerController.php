@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Customers;
+use App\Address;
 use DB;
 
 class CustomerController extends Controller
@@ -56,8 +58,7 @@ class CustomerController extends Controller
                         ->withInput();
         }
 
-        $isInsertAddress = DB::table('address')
-        ->insertGetId([
+        $isInsertAddress = Address::create([
           'id_state' => $request->state,
           'address' => $request->address,
           'city' => $request->city,
@@ -72,8 +73,7 @@ class CustomerController extends Controller
         ->where('zipcode', $request->zipcode)
         ->first();
 
-        $isInsertCustomer = DB::table('customers')
-        ->insertGetId([
+        $isInsertCustomer = Customers::create([
           'id_lang' => $request->lang,
           'id_address' => $address->id_address,
           'is_guest' => $request->guest,
@@ -86,6 +86,8 @@ class CustomerController extends Controller
 
         if ($isInsertAddress == true && $isInsertCustomer == true) {
           return redirect('customers')->with('Customer saved!');
+        } else {
+          return redirect('customers')->with('Customer error insert, check form');
         }
     }
 

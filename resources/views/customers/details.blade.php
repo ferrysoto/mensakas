@@ -15,7 +15,8 @@
                   <i class="fas fa-bars"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Edit customer</a>
+                  
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-example-modal-xl">Edit customer</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{route('customer.remove',  ['id' => $customer->id_customer])}}" style="color: red;">Remove customer</a>
                 </div>
