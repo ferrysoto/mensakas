@@ -23,32 +23,40 @@
             </div>
           </div>
           <div class="card-body">
-            <table class="table table-responsive-sm text-left">
-              <tr>
-                <td class="align-middle non-border"><b>Name</b></td>
-                <td class="align-middle non-border" id="name">{{$customer->first_name}} {{$customer->last_name}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>Email</b></td>
-                <td class="align-middle non-border" id="email">{{$customer->email}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>Address</b></td>
-                <td class="align-middle non-border" id="address">{{$address->address}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>City</b></td>
-                <td class="align-middle non-border" id="city">{{$address->city}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>Zip code</b></td>
-                @if(strlen($address->zipcode) < 5)
-                  <td class="align-middle non-border" id="city">0{{$address->zipcode}}</td>
-                @else
-                  <td class="align-middle non-border" id="city">{{$address->zipcode}}</td>
-                @endif
-              </tr>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-hover text-left">
+                <tr>
+                  <td class="align-middle non-border"><b>Name</b></td>
+                  <td class="align-middle non-border" id="name">{{$customer->first_name}} {{$customer->last_name}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>Email</b></td>
+                  <td class="align-middle non-border" id="email">{{$customer->email}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>Address</b></td>
+                  <td class="align-middle non-border" id="address">{{$address->address}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>City</b></td>
+                  <td class="align-middle non-border" id="city">{{$address->city}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>Zip code</b></td>
+                  @if(strlen($address->zipcode) < 5 && strlen($address->zipcode) == 1)
+                    <td class="align-middle non-border" id="city">0000{{$address->zipcode}}</td>
+                  @elseif(strlen($address->zipcode) < 5 && strlen($address->zipcode) == 2)
+                    <td class="align-middle non-border" id="city">000{{$address->zipcode}}</td>
+                  @elseif(strlen($address->zipcode) < 5 && strlen($address->zipcode) == 3)
+                    <td class="align-middle non-border" id="city">00{{$address->zipcode}}</td>
+                  @elseif(strlen($address->zipcode) < 5 && strlen($address->zipcode) == 4)
+                    <td class="align-middle non-border" id="city">0{{$address->zipcode}}</td>
+                  @else
+                    <td class="align-middle non-border" id="city">0000{{$address->zipcode}}</td>
+                  @endif
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -59,38 +67,40 @@
             Contact info
           </div>
           <div class="card-body">
-            <table class="table table-responsive-sm text-left">
-              <tr>
-                <td class="align-middle non-border"><b>Phone</b></td>
-                <td class="align-middle non-border" id="phone">{{$customer->phone}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>Email</b></td>
-                <td class="align-middle non-border" id="email">
-                  <a href="mailto:{{$customer->email}}">{{$customer->email}}</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>Name</b></td>
-                <td class="align-middle non-border" id="name">{{$customer->first_name}} {{$customer->last_name}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>Language</b></td>
-                <td class="align-middle non-border" id="lang">{{$lang->name}}</td>
-              </tr>
-              <tr>
-                <td class="align-middle non-border"><b>User type</b></td>
-                <td class="align-middle non-border" id="type_user">
-                  <div class="btn-group">
-                    @if($customer->is_guest  == 1)
-                    <button type="button" name="button" class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Guest</button>
-                    @else
-                    <button type="button" name="button" class="btn btn-sm btn-success"><i class="fas fa-check"></i> User registered</button>
-                    @endif
-                  </div>
-                </td>
-              </tr>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-hover text-left">
+                <tr>
+                  <td class="align-middle non-border"><b>Phone</b></td>
+                  <td class="align-middle non-border" id="phone">{{$customer->phone}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>Email</b></td>
+                  <td class="align-middle non-border" id="email">
+                    <a href="mailto:{{$customer->email}}">{{$customer->email}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>Name</b></td>
+                  <td class="align-middle non-border" id="name">{{$customer->first_name}} {{$customer->last_name}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>Language</b></td>
+                  <td class="align-middle non-border" id="lang">{{$lang->name}}</td>
+                </tr>
+                <tr>
+                  <td class="align-middle non-border"><b>User type</b></td>
+                  <td class="align-middle non-border" id="type_user">
+                    <div class="btn-group">
+                      @if($customer->is_guest  == 1)
+                      <button type="button" name="button" class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Guest</button>
+                      @else
+                      <button type="button" name="button" class="btn btn-sm btn-success"><i class="fas fa-check"></i> User registered</button>
+                      @endif
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
