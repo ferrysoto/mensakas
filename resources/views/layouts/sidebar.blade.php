@@ -45,7 +45,7 @@
               </a>
               <ul class="collapse list-unstyled" id="SuppliersSubmenu">
                   <li>
-                    <a href="#">
+                    <a href="{{route('product.index')}}">
                       <i class="fas fa-boxes"></i>
                       Products
                     </a>
