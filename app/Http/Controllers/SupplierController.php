@@ -125,8 +125,12 @@ class SupplierController extends Controller
         ->where('id_category', $supplier->id_category_supplier)
         ->where('id_lang', $lang->id_language)
         ->first();
-      // dd($category);
-      return view('suppliers.details', compact('supplier','products', 'address', 'category'));
+
+        $languages = DB::table('language')->get();
+        $states = DB::table('state')->get();
+        $categories = DB::table('Suppliers_categories_lang')->get();
+
+      return view('suppliers.details', compact('supplier', 'products', 'lang', 'address', 'category', 'languages', 'states', 'categories'));
   }
 
   /**
@@ -147,9 +151,40 @@ class SupplierController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(Request $request)
   {
-      //
+    // dd($request);
+    $isUpdateAddress = Address::create([
+      'id_state' => $request->state,
+      'address' => $request->address,
+      'city' => $request->city,
+      'zipcode' => $request->zipcode,
+      'active' => 1,
+      'deleted' => 0
+    ]);
+
+    $address = DB::table('address')
+    ->select('id_address')
+    ->where('address', $request->address)
+    ->where('zipcode', $request->zipcode)
+    ->first();
+
+    $isUpdateSupplier = Suppliers::create([
+
+      'id_address' => $address->id_address,
+      'name' => $request->name,
+      'email' => $request->email,
+      'phone' => $request->phone,
+      'active' => 1,
+      'id_category_supplier' => $request->category,
+    ]);
+
+
+    if ($isUpdateAddress == true && $isUpdateSupplier == true) {
+      return redirect('suppliers')->with('supplier saved!');
+    } else {
+      return redirect('suppliers')->with('supplier error insert, check form');
+    }
   }
 
   /**

@@ -119,7 +119,7 @@ class CustomerController extends Controller
 
         $languages = DB::table('language')->get();
         $states = DB::table('state')->get();
-        // dd($customer);
+
         return view('customers.details', compact('customer', 'lang', 'address', 'orders', 'languages', 'states'));
     }
 
