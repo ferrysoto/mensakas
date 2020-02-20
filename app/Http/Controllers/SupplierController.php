@@ -120,6 +120,7 @@ class SupplierController extends Controller
           ->select('id_language')
           ->where('default', 1)
           ->first();
+      $states = DB::table('state')->get();
 
       $category = DB::table('suppliers_categories_lang')
         ->where('id_category', $supplier->id_category_supplier)
@@ -199,7 +200,6 @@ class SupplierController extends Controller
     $products = DB::table('products')
     ->where('id_supplier', $id)
     ->get();
-    // dd($products);
 
       for ($i=0; $i < count($products); $i++) {
         DB::table('orders_details')->where('id_product', $products[$i]->id_product)->delete();

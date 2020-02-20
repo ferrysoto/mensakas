@@ -12,24 +12,24 @@
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="{{route('supplier.create')}}"><i class="fas fa-user-plus icon-right"></i>Create supplier</a>
-							<a class="dropdown-item" href="#"><i class="fas fa-filter icon-right"></i>Filters</a>
-							<a class="dropdown-item" href="#"><i class="fa fa-map-marker icon-right"></i>Show address</a>
-							<div class="dropdown-divider"></div>
+							<!-- <a class="dropdown-item" href="#"><i class="fas fa-filter icon-right"></i>Filters</a>
+							<a class="dropdown-item" href="#"><i class="fa fa-map-marker icon-right"></i>Show address</a> -->
+							<!-- <div class="dropdown-divider"></div>
 							<a class="dropdown-item" style="color:red" href="#">
 								<i class="fas fa-user-slash icon-right"></i>
 								Remove supplier
 							</a>
-						</div>
+						</div> -->
 						<div class="collapse navbar-collapse" id="suppliersNavbar">
 							<ul class="navbar-nav ml-md-auto">
-								<li class="nav-item">
+								<!-- <li class="nav-item">
 									<form class="form-inline">
 										<input class="form-control mr-sm-2" type="text" />
 										<button class="btn btn-primary my-2 my-sm-0" type="submit">
 											Search
 										</button>
 									</form>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</nav>

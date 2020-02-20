@@ -18,7 +18,7 @@
                   Orders
                 </a>
                 <ul class="collapse list-unstyled" id="CustomersSubmenu">
-                  <li>
+                  <!-- <li>
                     <a href="#">
                       <i class="fas fa-user-clock"></i>
                       Last orders
@@ -30,7 +30,7 @@
                       Invoices
                     </a>
                   </li>
-                  <li>
+                  <li> -->
                     <a href="{{route('customer.index')}}">
                       <i class="fas fa-users"></i>
                       Customers
@@ -44,7 +44,7 @@
                   Suppliers
               </a>
               <ul class="collapse list-unstyled" id="SuppliersSubmenu">
-                  <li>
+                  <!-- <li>
                     <a href="#">
                       <i class="fas fa-boxes"></i>
                       Products
@@ -55,7 +55,7 @@
                         <i class="fas fa-book-open"></i>
                         Categories
                       </a>
-                  </li>
+                  </li> -->
                   <li>
                       <a href="{{route('supplier.index')}}">
                         <i class="fas fa-utensils"></i>
