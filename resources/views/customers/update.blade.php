@@ -10,11 +10,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('customer.create')}}" method="post">
+        <form action="{{route('customer.update')}}" method="post">
           @csrf
           <div class="form-row">
             <div class="form-group col-md-2">
-              <label for="customerLang">Language App</label>
+              <label for="customerLang">Language</label>
               <select id="customerLang" name="lang" class="form-control">
                 <option value="1" selected>Choose...</option>
                 @foreach($languages as $lang)
@@ -72,19 +72,15 @@
               <input type="number" class="form-control" id="customerZip" name="zipcode" min="00001" max="99999" placeholder="00000" required>
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="passReset">
-              <label class="form-check-label" for="passReset">
-                Send welcome email
-              </label>
-            </div>
+          <div class="form-group float-right">
+            <input type="text" name="id_customer" value="{{$customer->id_customer}}" hidden>
+            <input type="text" name="id_address" value="{{$customer->id_address}}" hidden>
+            <button type="submit" class="btn btn-primary">Save changes</button>
           </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </form>
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
