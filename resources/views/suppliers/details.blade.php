@@ -1,4 +1,6 @@
 @extends('layouts.sidebar')
+@include('suppliers.update')
+@yield('updatesupplier')
 @section('content')
   <div class="container-fluid">
     <div class="row">
@@ -15,8 +17,9 @@
                   <i class="fas fa-bars"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-example-modal-xl">Edit supplier</a>
+                  <a type="button" class="dropdown-item" data-toggle="modal" data-target="#updatesupplier">
+                    Edit supplier
+                  </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{route('supplier.remove',  ['id' => $supplier->id_supplier])}}" style="color: red;">Remove supplier</a>
                 </div>

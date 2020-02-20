@@ -117,12 +117,14 @@ class SupplierController extends Controller
         ->where('id_supplier', $id)
         ->get();
 
+        $languages = DB::table('language')->get();
+        $states = DB::table('state')->get();
       // $productName = DB::table('products_lang')
       //   ->where('id_lang',1)
       //   ->where('id_product',$products->id_product)
       //   ->get();
 
-      return view('suppliers.details', compact('supplier','products', 'address'));
+      return view('suppliers.details', compact('supplier','products', 'address','languages','states'));
   }
 
   /**
