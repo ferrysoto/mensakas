@@ -36,7 +36,7 @@ class SupplierController extends Controller
   {
     $languages = DB::table('language')->get();
     $states = DB::table('state')->get();
-    $categories = DB::table('Suppliers_categories_lang')->get();
+    $categories = DB::table('suppliers_categories_lang')->get();
       return view('suppliers.create', compact('languages', 'states', 'categories'));
   }
 
@@ -121,14 +121,14 @@ class SupplierController extends Controller
           ->where('default', 1)
           ->first();
 
-      $category = DB::table('Suppliers_categories_lang')
+      $category = DB::table('suppliers_categories_lang')
         ->where('id_category', $supplier->id_category_supplier)
         ->where('id_lang', $lang->id_language)
         ->first();
 
         $languages = DB::table('language')->get();
         $states = DB::table('state')->get();
-        $categories = DB::table('Suppliers_categories_lang')->get();
+        $categories = DB::table('suppliers_categories_lang')->get();
 
       return view('suppliers.details', compact('supplier', 'products', 'lang', 'address', 'category', 'languages', 'states', 'categories'));
   }
