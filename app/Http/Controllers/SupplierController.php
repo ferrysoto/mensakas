@@ -164,10 +164,6 @@ class SupplierController extends Controller
         ->where('id_supplier', $id)
         ->delete();
 
-      DB::table('address')
-          ->where('id_address', $supplier->id_address)
-          ->delete();
-
       return redirect('suppliers')->with('supplier removed');
   }
 }

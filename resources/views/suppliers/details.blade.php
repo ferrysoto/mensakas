@@ -52,8 +52,10 @@
                     <td class="align-middle non-border" id="city">00{{$address->zipcode}}</td>
                   @elseif(strlen($address->zipcode) < 5 && strlen($address->zipcode) == 4)
                     <td class="align-middle non-border" id="city">0{{$address->zipcode}}</td>
+                  @elseif(strlen($address->zipcode) <= 5 && strlen($address->zipcode) == 5)
+                    <td class="align-middle non-border" id="city">{{$address->zipcode}}</td>
                   @else
-                    <td class="align-middle non-border" id="city">0000{{$address->zipcode}}</td>
+                  <td class="align-middle non-border" id="city">00000{{$address->zipcode}}</td>
                   @endif
                 </tr>
               </table>
@@ -123,7 +125,8 @@
                     <td class="align-middle non-border">Macarrones con tomate</td>
                     @elseif($product->id_product == 5)
                     <td class="align-middle non-border">Ramen de cerdo</td>
-
+                    @else
+                    <td class="align-middle non-border">No traduction yet</td>
                     @endif
                     <td class="align-middle non-border">{{$product->price}}</td>
                     @if($product->gluten_contains == 0)
