@@ -160,9 +160,19 @@ class SupplierController extends Controller
         ->where('id_supplier', $id)
         ->first();
 
+        DB::table('products')
+        ->where('id_supplier', $id)
+        ->delete();
+
+        DB::table('orders_details')
+        ->where('id_supplier', $id)
+        ->delete();
+
       DB::table('suppliers')
         ->where('id_supplier', $id)
         ->delete();
+
+
 
       return redirect('suppliers')->with('supplier removed');
   }

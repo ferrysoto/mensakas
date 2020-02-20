@@ -5,7 +5,7 @@
     </a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    Library
+    <!-- Library -->
   </li>
 </ol>
 <ol class="breadcrum" style="padding: 0; background-color: transparent; margin: 0;">
@@ -18,8 +18,8 @@
 
         <div class="dropdown-menu" aria-labelledby="userOptions">
           <a class="dropdown-item" href="{{ url('/') }}">Home</a>
-          <a class="dropdown-item" href="{{ route('login') }}">Settings</a>
-          <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+          <!-- <a class="dropdown-item" href="login/register">Settings</a> -->
+          <!-- <a class="dropdown-item" href="login/register">Register</a> -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" style="color:red;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
             <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
