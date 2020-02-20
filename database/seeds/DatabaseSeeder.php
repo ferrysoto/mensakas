@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
         //suppliers_categories
         Suppliers_categoriesTableSeeder::class,
 
-    //suppliers_categories_lang
+        Suppliers_categories_langTableSeeder::class,
+
     //PENDIENTE
     //Profiles_lang
     //PENDIENTE

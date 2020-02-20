@@ -36,7 +36,8 @@ class SupplierController extends Controller
   {
     $languages = DB::table('language')->get();
     $states = DB::table('state')->get();
-      return view('suppliers.create', compact('languages', 'states'));
+    $categories = DB::table('Suppliers_categories_lang')->get();
+      return view('suppliers.create', compact('languages', 'states', 'categories'));
   }
 
   /**
@@ -84,8 +85,7 @@ class SupplierController extends Controller
         'email' => $request->email,
         'phone' => $request->phone,
         'active' => 1,
-        'id_category_supplier' => 1,
-
+        'id_category_supplier' => $request->category,
       ]);
 
 
@@ -108,7 +108,6 @@ class SupplierController extends Controller
         ->where('id_supplier', $id)
         ->first();
 
-
       $address = DB::table('address')
         ->where('id_address', $supplier->id_address)
         ->first();
@@ -117,14 +116,18 @@ class SupplierController extends Controller
         ->where('id_supplier', $id)
         ->get();
 
-        $languages = DB::table('language')->get();
-        $states = DB::table('state')->get();
-      // $productName = DB::table('products_lang')
-      //   ->where('id_lang',1)
-      //   ->where('id_product',$products->id_product)
-      //   ->get();
+      $lang = DB::table('language')
+          ->select('id_language')
+          ->where('default', 1)
+          ->first();
+      $states = DB::table('state')->get();
 
-      return view('suppliers.details', compact('supplier','products', 'address','languages','states'));
+      $category = DB::table('Suppliers_categories_lang')
+        ->where('id_category', $supplier->id_category_supplier)
+        ->where('id_lang', $lang->id_language)
+        ->first();
+      // dd($category);
+      return view('suppliers.details', compact('supplier','products', 'address', 'category' ,'states'));
   }
 
   /**
@@ -162,7 +165,6 @@ class SupplierController extends Controller
     $products = DB::table('products')
     ->where('id_supplier', $id)
     ->get();
-    // dd($products);
 
       for ($i=0; $i < count($products); $i++) {
         DB::table('orders_details')->where('id_product', $products[$i]->id_product)->delete();
