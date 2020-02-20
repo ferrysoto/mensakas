@@ -1,4 +1,6 @@
 @extends('layouts.sidebar')
+@include('customers.update')
+@yield('updateCustomer')
 @section('content')
   <div class="container-fluid">
     <div class="row">
@@ -15,8 +17,9 @@
                   <i class="fas fa-bars"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-example-modal-xl">Edit customer</a>
+                  <a type="button" class="dropdown-item" data-toggle="modal" data-target="#updateCustomer">
+                    Edit customer
+                  </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{route('customer.remove',  ['id' => $customer->id_customer])}}" style="color: red;">Remove customer</a>
                 </div>
@@ -125,15 +128,15 @@
                   <td class="align-middle non-border"><b>Invoice Num</b></td>
                   <td class="align-middle non-border"><b>Date</b></td>
                 </tr>
+                @foreach($orders as $order)
                 <tr>
-                  @foreach($orders as $order)
                     <td class="align-middle non-border">{{$order->id_order}}</td>
                     <td class="align-middle non-border">{{$order->address}}</td>
                     <td class="align-middle non-border">{{$order->total_paid}}</td>
                     <td class="align-middle non-border">{{$order->invoice_num}}</td>
                     <td class="align-middle non-border">{{$order->invoice_date}}</td>
-                  @endforeach
                 </tr>
+                @endforeach
               </table>
             @endif
           </div>
