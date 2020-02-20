@@ -23,3 +23,11 @@ Route::get('suppliers/create', 'SupplierController@create')->name('supplier.crea
 Route::post('suppliers/create', 'SupplierController@store')->name('supplier.create');
 Route::post('suppliers/update', 'SupplierController@update')->name('supplier.update');
 Route::get('supplier/{id}', 'SupplierController@destroy')->name('supplier.remove');
+
+// Products routes
+Route::get('products', 'ProductController@index')->name('product.index');
+Route::get('products/details/{id}', 'ProductController@show')->name('product.details');
+Route::get('products/create', 'ProductController@create')->name('product.create');
+Route::post('products/create', 'ProductController@store')->name('product.create');
+Route::post('products/update', 'ProductController@update')->name('product.update');
+Route::get('products/{id}', 'ProductController@destroy')->name('product.remove');
