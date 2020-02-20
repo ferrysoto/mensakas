@@ -21,7 +21,7 @@
                   <li>
                     <a href="#">
                       <i class="fas fa-user-clock"></i>
-                      Lasts orders
+                      Last orders
                     </a>
                   </li>
                   <li>
@@ -39,11 +39,11 @@
                 </ul>
             </li>
             <li class="active">
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+              <a href="#SuppliersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                   <i class="fas fa-building"></i>
                   Suppliers
               </a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
+              <ul class="collapse list-unstyled" id="SuppliersSubmenu">
                   <li>
                     <a href="#">
                       <i class="fas fa-boxes"></i>
@@ -57,7 +57,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#">
+                      <a href="{{route('supplier.index')}}">
                         <i class="fas fa-utensils"></i>
                         Restaurants
                       </a>
