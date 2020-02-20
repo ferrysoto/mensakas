@@ -31,3 +31,11 @@ Route::get('products/create', 'ProductController@create')->name('product.create'
 Route::post('products/create', 'ProductController@store')->name('product.create');
 Route::post('products/update', 'ProductController@update')->name('product.update');
 Route::get('products/{id}', 'ProductController@destroy')->name('product.remove');
+
+// Order index
+Route::get('orders', 'OrderController@index')->name('order.index');
+// Route::get('products/details/{id}', 'ProductController@show')->name('product.details');
+// Route::get('products/create', 'ProductController@create')->name('product.create');
+// Route::post('products/create', 'ProductController@store')->name('product.create');
+// Route::post('products/update', 'ProductController@update')->name('product.update');
+// Route::get('products/{id}', 'ProductController@destroy')->name('product.remove');

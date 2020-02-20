@@ -29,6 +29,6 @@ class HomeController extends Controller
         ->where('invoice_date', date("Y-m-d"))
         ->paginate(10);
 
-        return view('dashboard', compact('orders'));
+        return view('orders.index', compact('orders'));
     }
 }

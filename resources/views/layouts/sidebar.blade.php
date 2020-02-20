@@ -19,7 +19,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="CustomersSubmenu">
                   <li>
-                    <a href="#">
+                    <a href="{{route('order.index')}}">
                       <i class="fas fa-user-clock"></i>
                       Last orders
                     </a>

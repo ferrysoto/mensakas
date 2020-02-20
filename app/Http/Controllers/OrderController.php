@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,20 +15,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-      $lang = DB::table('language')
-        ->where('default', 1)
-        ->first();
+      $orders = DB::table('orders')
+      ->join('address', 'orders.id_address', '=', 'address.id_address')
+      ->where('invoice_date', date("Y-m-d"))
+      ->paginate(10);
 
-      $products = DB::table('products')
-        ->join('products_lang', 'products.id_product', 'products_lang.id_product')
-        // ->where('products_lang.id_lang', $lang->id_language)
-        ->paginate(10);
-
-      $categories = DB::table('products_categories')
-          ->join('products_categories_lang', 'products_categories.id_product_category', 'products_categories_lang.id_product_category')
-          ->get();
-
-        return view('products.index', compact('products', 'categories', 'lang'));
+        return view('orders.index', compact('orders'));
     }
 
     /**

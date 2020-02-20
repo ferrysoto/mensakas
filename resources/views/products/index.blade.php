@@ -41,7 +41,7 @@
     						<th>Name</th>
     						<th>Category</th>
     						<th>Price</th>
-                <th>Details</th>
+                <!-- <th>Details</th> -->
     					</tr>
     				</thead>
     				<tbody>
@@ -63,11 +63,11 @@
                   <td>
                     {{$product->price}}
                   </td>
-                  <td>
-                    <a href="{{route('supplier.details', ['id' => $product->id_supplier])}}" class="btn btn-small btn-light">
+                  <!-- <td>
+                    <a href="{{route('product.details', ['id' => $product->id_product])}}" class="btn btn-small btn-light">
                       <i class="fas fa-sign-out-alt"></i>
                     </a>
-                  </td>
+                  </td> -->
                 </tr>
               @endforeach
     				</tbody>
