@@ -141,9 +141,31 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        DB::table('address')
+          ->where('id_address', $request->id_address)
+          ->update([
+            'id_state' => $request->state,
+            'address' => $request->address,
+            'city' => $request->city,
+            'zipcode' => $request->zipcode,
+            'active' => 1,
+            'deleted' => 0
+          ]);
+
+        DB::table('customers')
+          ->where('id_customer', $request->id_customer)
+          ->update([
+            'id_lang' => $request->lang,
+            'id_address' => $request->id_address,
+            'is_guest' => $request->guest,
+            'first_name' => $request->firstname,
+            'last_name' => $request->lastname,
+            'email' => $request->email,
+            'phone' => $request->phone
+          ]);
+        return redirect('customers')->with('changes update success');
     }
 
     /**
