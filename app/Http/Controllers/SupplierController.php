@@ -156,13 +156,24 @@ class SupplierController extends Controller
    */
   public function destroy($id)
   {
+
+    $products = DB::table('products')
+    ->where('id_supplier', $id)
+    ->get();
+    // dd($products);
+
+      for ($i=0; $i < count($products); $i++) {
+        DB::table('orders_details')->where('id_product', $products[$i]->id_product)->delete();
+        DB::table('products')->where('id_product', $products[$i]->id_product)->delete();
+      }
+
       $supplier = DB::table('suppliers')
         ->where('id_supplier', $id)
         ->first();
 
-        DB::table('products')
-        ->where('id_supplier', $id)
-        ->delete();
+      $address_supplier = DB::table('address')
+          ->where('id_address', $supplier->id_address)
+          ->delete();
 
         DB::table('orders_details')
         ->where('id_supplier', $id)
@@ -171,8 +182,6 @@ class SupplierController extends Controller
       DB::table('suppliers')
         ->where('id_supplier', $id)
         ->delete();
-
-
 
       return redirect('suppliers')->with('supplier removed');
   }
