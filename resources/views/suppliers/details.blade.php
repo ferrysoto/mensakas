@@ -17,7 +17,7 @@
                   <i class="fas fa-bars"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a type="button" class="dropdown-item" data-toggle="modal" data-target="#updatesupplier">
+                  <a type="button" class="dropdown-itemr" data-toggle="modal" data-target="#updatesupplier">
                     Edit supplier
                   </a>
                   <div class="dropdown-divider"></div>
