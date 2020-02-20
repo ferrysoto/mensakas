@@ -34,10 +34,6 @@
                   <td class="align-middle non-border" id="name">{{$customer->first_name}} {{$customer->last_name}}</td>
                 </tr>
                 <tr>
-                  <td class="align-middle non-border"><b>Email</b></td>
-                  <td class="align-middle non-border" id="email">{{$customer->email}}</td>
-                </tr>
-                <tr>
                   <td class="align-middle non-border"><b>Address</b></td>
                   <td class="align-middle non-border" id="address">{{$address->address}}</td>
                 </tr>
@@ -84,10 +80,6 @@
                   <td class="align-middle non-border" id="email">
                     <a href="mailto:{{$customer->email}}">{{$customer->email}}</a>
                   </td>
-                </tr>
-                <tr>
-                  <td class="align-middle non-border"><b>Name</b></td>
-                  <td class="align-middle non-border" id="name">{{$customer->first_name}} {{$customer->last_name}}</td>
                 </tr>
                 <tr>
                   <td class="align-middle non-border"><b>Language</b></td>

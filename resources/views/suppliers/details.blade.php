@@ -31,10 +31,6 @@
                   <td class="align-middle non-border" id="name">{{$supplier->name}}</td>
                 </tr>
                 <tr>
-                  <td class="align-middle non-border"><b>Email</b></td>
-                  <td class="align-middle non-border" id="email">{{$supplier->email}}</td>
-                </tr>
-                <tr>
                   <td class="align-middle non-border"><b>Address</b></td>
                   <td class="align-middle non-border" id="address">{{$address->address}}</td>
                 </tr>
@@ -83,10 +79,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="align-middle non-border"><b>Name</b></td>
-                  <td class="align-middle non-border" id="name">{{$supplier->name}}</td>
+                  <td class="align-middle non-border"><b>Category</b></td>
+                  <td class="align-middle non-border" id="category">{{$category->name}}</td>
                 </tr>
-
               </table>
             </div>
           </div>

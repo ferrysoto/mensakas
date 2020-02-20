@@ -21,5 +21,5 @@ Route::get('suppliers', 'SupplierController@index')->name('supplier.index');
 Route::get('suppliers/details/{id}', 'SupplierController@show')->name('supplier.details');
 Route::get('suppliers/create', 'SupplierController@create')->name('supplier.create');
 Route::post('suppliers/create', 'SupplierController@store')->name('supplier.create');
-Route::post('suppliers/create', 'SupplierController@update')->name('supplier.update');
+Route::post('suppliers/update', 'SupplierController@update')->name('supplier.update');
 Route::get('supplier/{id}', 'SupplierController@destroy')->name('supplier.remove');

@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group col-md-3">
                   <label for="supplierName">Full name</label>
-                  <input type="text" class="form-control" id="supplierName" name="name" value="" maxlength="255" placeholder="Leandro Mieza" required>
+                  <input type="text" class="form-control" id="supplierName" name="name" value="" maxlength="255" placeholder="Kebab halal cornella" required>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="supplierEmail">Email</label>
@@ -30,11 +30,20 @@
                 </div>
                 <div class="form-group col-md-3">
                   <label for="supplierPhone">Phone</label>
-                  <input type="number" class="form-control" id="supplierPhone" name="phone" placeholder="699 999 999" min="600000000" max="999999999" required>
+                  <input type="number" class="form-control" id="supplierPhone" name="phone" placeholder="93 666 66 66" min="600000000" max="999999999" required>
                 </div>
               </div>
               <div class="form-row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-4">
+                  <label for="supplierDefaultCategory">Category default</label>
+                    <select class="form-control" name="category">
+                      <option selected value="1">Choose...</option>
+                      @foreach($categories as $cat)
+                      <option value="{{$cat->id_category}}">{{$cat->name}}</option>
+                      @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-8">
                   <label for="supplierAddress">Address</label>
                   <input type="text" class="form-control" id="supplierAddress" name="address" placeholder="1234 Main St" maxlength="128" required>
                 </div>

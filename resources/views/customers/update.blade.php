@@ -69,7 +69,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="customerZip">Zip</label>
-              <input type="number" class="form-control" id="customerZip" name="zipcode" min="00001" max="99999" placeholder="00000" required>
+              <input type="number" class="form-control" id="customerZip" name="zipcode" min="00001" max="99999" placeholder="" required>
             </div>
           </div>
           <div class="form-group float-right">
